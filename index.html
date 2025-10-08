@@ -5,128 +5,638 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fatima Ezzahrae SBILI | AI & Data Engineer</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      background-color: #121212;
-      color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #e4e4e7;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      padding: 0;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
     }
-    h1, h2 {
-      color: #00bcd4;
+    
+    header {
+      text-align: center;
+      padding: 3rem 0;
+      border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+      margin-bottom: 3rem;
     }
-    a {
-      color: #4dd0e1;
-      text-decoration: none;
+    
+    .header-name {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    
+    .header-title {
+      font-size: 1.5rem;
+      color: #a78bfa;
+      font-weight: 300;
       margin-bottom: 2rem;
     }
-    th, td {
-      border: 1px solid #333;
-      padding: 0.8rem;
-      text-align: left;
+    
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
-    th {
-      background-color: #1e1e1e;
+    
+    .contact-links a {
+      color: #c4b5fd;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: rgba(139, 92, 246, 0.1);
     }
-    tr:nth-child(even) {
-      background-color: #1a1a1a;
+    
+    .contact-links a:hover {
+      background: rgba(139, 92, 246, 0.2);
+      transform: translateY(-2px);
     }
-    ul {
+    
+    section {
+      margin-bottom: 4rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: #a78bfa;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d4d4d8;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .skill-category {
+      background: rgba(139, 92, 246, 0.05);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    
+    .skill-category h3 {
+      color: #c4b5fd;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .skill-tag {
+      background: rgba(167, 139, 250, 0.2);
+      color: #e9d5ff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+    
+    .experience-item, .project-item {
+      background: rgba(139, 92, 246, 0.05);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #8b5cf6;
+      transition: all 0.3s ease;
+    }
+    
+    .experience-item:hover, .project-item:hover {
+      transform: translateX(5px);
+      background: rgba(139, 92, 246, 0.1);
+    }
+    
+    .experience-header, .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .experience-title, .project-title {
+      font-size: 1.3rem;
+      color: #c4b5fd;
+      font-weight: 600;
+    }
+    
+    .experience-company {
+      color: #a78bfa;
+      font-size: 1.1rem;
+    }
+    
+    .experience-date {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+    
+    .experience-item ul, .project-item ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    
+    .experience-item li, .project-item li {
       padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      color: #d4d4d8;
+    }
+    
+    .experience-item li:before, .project-item li:before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #8b5cf6;
+      font-weight: bold;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .tech-badge {
+      background: rgba(139, 92, 246, 0.2);
+      color: #e9d5ff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .project-link {
+      color: #a78bfa;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid #8b5cf6;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .project-link:hover {
+      background: rgba(139, 92, 246, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .cert-item {
+      background: rgba(139, 92, 246, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .cert-item:hover {
+      background: rgba(139, 92, 246, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .cert-item a {
+      color: #c4b5fd;
+      text-decoration: none;
+    }
+    
+    .cert-item a:hover {
+      color: #e9d5ff;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #9ca3af;
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+      .header-name {
+        font-size: 2rem;
+      }
+      
+      .header-title {
+        font-size: 1.2rem;
+      }
+      
+      .contact-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .experience-header, .project-header {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1 class="header-name">Fatima Ezzahrae SBILI</h1>
+      <p class="header-title">AI & Data Engineer | Cybersecurity Enthusiast</p>
+      <div class="contact-links">
+        <a href="mailto:fati.ezzahrae@outlook.com">📧 fati.ezzahrae@outlook.com</a>
+        <a href="tel:+212615211373">📞 +212 6 15 21 13 73</a>
+        <a href="http://www.linkedin.com/in/fatima-ezzahrae-sbili-2a49552b3" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/Fsolve/" target="_blank">💻 GitHub</a>
+      </div>
+    </header>
 
-  <h1>👋 Fatima Ezzahrae SBILI - AI & Data Engineer</h1>
-  <h2>📬 Contact</h2>
-  <p>
-    📧 Email: fati.ezzahrae@outlook.com<br/>
-    📞 Phone: +212 6 15 21 13 73<br/>    
-    💼 LinkedIn: <a href="http://www.linkedin.com/in/fatima-ezzahrae-sbili-2a49552b3">linkedin/fatima-ezzahrae-sbili-2a49552b3</a><br/>
-    💻 GitHub: <a href="https://github.com/Fsolve/">github.com/Fsolve/</a><br/>
-  </p>
+    <section>
+      <h2>👋 About Me</h2>
+      <p class="about-text">
+<li>🎓 Data Science & AI Engineer graduate from ENSAM Rabat(June 2025)</li>
 
-  <h2>🧑‍💼 About Me</h2>
-  <p>I’m a digital engineering graduate specializing in Data Science & AI. I’m passionate about building real-world applications using machine learning, large language models (LLMs), and data engineering tools. I’ve worked on AI agents, ETL pipelines, and data visualization SaaS apps. I’m now looking to grow in roles related to AI engineering, data platforms, or agent-based systems.
-  </p>
+<li>📊 Passionate about data engineering: building pipelines, processing raw data, and transforming it into actionable insights for decision-making</li>
 
-  <h2>💼 Current Job</h2>
-  <p><strong>Position:</strong> Data Engineer & Prompt engineering Intern at Hi Group</p>
+<li>🤖 AI enthusiast specializing in fine-tuning LLMs, building machine learning models, creating AI agents, and generative AI applications</li>
+
+<li>🔐 Cybersecurity enthusiast with a keen interest in secure data practices and system protection</li>
+
+<li>💼 Business analyst with critical thinking skills and a strong ability to understand requirements and suggest strategic business solutions</li>
+
+<li>🏄 Fun fact: Besides surfing the web, I surf real waves! 🌊</li>
+
+<li>⚡ Very fast learner with quick adaptability and flexibility in any work environment</li>
+      </p>
+    </section>
+
+    <section>
+      <h2>💼 Professional Journey</h2>
+      <div style="position: relative; padding-left: 3rem;">
+        <!-- Timeline line -->
+        <div style="position: absolute; left: 1.2rem; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #8b5cf6 0%, #10b981 50%, #6366f1 100%);"></div>
+        
+        <!-- Experience 1 -->
+        <div style="position: relative; margin-bottom: 2rem; padding-left: 1rem;">
+          <div style="position: absolute; left: -2.3rem; top: 0.3rem; width: 1.2rem; height: 1.2rem; background: #8b5cf6; border-radius: 50%; border: 3px solid #1a1a1a; box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);"></div>
+          <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #8b5cf6;">
+            <div style="font-size: 1.1rem; color: #c4b5fd; font-weight: 600;">AI & Data Engineer Intern</div>
+            <div style="color: #a78bfa; font-size: 0.95rem;">HI Group</div>
+            <div style="color: #9ca3af; font-size: 0.85rem; font-style: italic; margin-top: 0.3rem;">January 2025 - July 2025</div>
+          </div>
+        </div>
+        
+        <!-- Experience 2 -->
+        <div style="position: relative; margin-bottom: 2rem; padding-left: 1rem;">
+          <div style="position: absolute; left: -2.3rem; top: 0.3rem; width: 1.2rem; height: 1.2rem; background: #10b981; border-radius: 50%; border: 3px solid #1a1a1a; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);"></div>
+          <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #10b981;">
+            <div style="font-size: 1.1rem; color: #6ee7b7; font-weight: 600;">Data Scientist & AI Engineer Intern</div>
+            <div style="color: #34d399; font-size: 0.95rem;">Marokko Biz Real Estate</div>
+            <div style="color: #9ca3af; font-size: 0.85rem; font-style: italic; margin-top: 0.3rem;">June 2024 - September 2024</div>
+          </div>
+        </div>
+        
+        <!-- Experience 3 -->
+        <div style="position: relative; padding-left: 1rem;">
+          <div style="position: absolute; left: -2.3rem; top: 0.3rem; width: 1.2rem; height: 1.2rem; background: #6366f1; border-radius: 50%; border: 3px solid #1a1a1a; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);"></div>
+          <div style="background: rgba(99, 102, 241, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #6366f1;">
+            <div style="font-size: 1.1rem; color: #a5b4fc; font-weight: 600;">Python Developer Intern</div>
+            <div style="color: #818cf8; font-size: 0.95rem;">Second World</div>
+            <div style="color: #9ca3af; font-size: 0.85rem; font-style: italic; margin-top: 0.3rem;">June 2023 - September 2023</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📚 Current Focus</h2>
+      <div class="experience-item" style="border-left-color: #10b981;">
+        <div class="experience-header">
+          <div>
+            <div class="experience-title">Google Cloud Professional Data Engineer Certification GCP</div>
+          </div>
+          <div class="experience-date">August 2025 - Expected end on December 2025</div>
+        </div>
+        <p style="color: #d4d4d8; margin-bottom: 1rem;">
+          Currently pursuing Google Cloud Professional Data Engineer certification through intensive self-study. 
+        <div class="tech-stack">
+          <span class="tech-badge">BigQuery</span>
+          <span class="tech-badge">Cloud Dataflow</span>
+          <span class="tech-badge">Cloud Composer</span>
+          <span class="tech-badge">Pub/Sub</span>
+          <span class="tech-badge">Cloud Storage</span>
+        </div>
+      </div>
+      <div class="experience-item" style="border-left-color: #a8b910;">
+        <div class="experience-header">
+          <div>
+            <div class="experience-title">Personal project: JobScope -Morocco Job Market Intelligence Platform</div>
+            
+          </div>
+          <div class="experience-date">July 2025 - Expected end on November 2025</div>
+        </div>
+        <p style="color: #d4d4d8; margin-bottom: 1rem;">
+Developing a real-time data pipeline analyzing job market trends across Morocco's major job posting platforms. The system provides insights on in-demand skills, salary ranges, geographic distribution, and comparative analysis between different job posting websites.        <div class="tech-stack">
+      
+          <span class="tech-badge">Python requets</span>
+          <span class="tech-badge">Playwright</span>
+    <span class="tech-badge">Kafka</span>
+    <span class="tech-badge">PySpark</span>
+    <span class="tech-badge">BeautifulSoup</span>
+    <span class="tech-badge">Scrapy</span>
+    <span class="tech-badge">PostgreSQL</span>
+    <span class="tech-badge">Docker</span>
+    <span class="tech-badge">Airflow</span>
+    <span class="tech-badge">Flask</span>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>📁 Featured Projects</h2>
+      
+      
+      <div class="project-item">
+        <div class="project-header">
+          <div class="project-title">URL Phishing Detector built with Fine Tuning BERT Model </div>
+        </div>
+        <p>Fine Tuned Bert Model to detect phishing URLs using feature extraction and classification algorithms. The system analyzes URL characteristics to identify malicious websites with high accuracy.</p>
+        <ul>
+          <li>Implemented feature engineering to extract URL-based features (length, special characters, domain age)</li>
+          <li>Fine tuned BERT model on a dataset of url (from kaggle)</li>
+          <li>Achieved strong performance metrics in identifying fraudulent websites</li>
+          <li>Building interactive UI with Streamlit</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">BERT LLM</span>
+          <span class="tech-badge">Machine Learning</span>
+          <span class="tech-badge">Scikit-learn</span>
+          <span class="tech-badge">Pytroch</span>
+          <span class="tech-badge">TensorFlow</span>
+          <span class="tech-badge">Transformers</span>
+
+          <span class="tech-badge">Streamlit</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Fsolve/URL-phishing-detector" class="project-link" target="_blank">Project + documentation</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <div class="project-title">Morocco Real Estate Price Prediction with XGBoost Model</div>
+        </div>
+        <p>Built a regression model to predict real estate prices in Morocco based on property features, location, and market trends.</p>
+        <ul>
+          <li>Collected and preprocessed real estate data through webscraping (from avito)</li>
+          <li>Performed exploratory data analysis to identify key price determinants</li>
+          <li>Developed and fine-tuned an XGBoost model </li>
+          <li>Built an UI to showcase results with flask  </li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-badge">Python requests</span>
+          <span class="tech-badge">BeautifulSoup</span>
+          <span class="tech-badge">EDA</span>
+          <span class="tech-badge">XGBoost</span>
+           <span class="tech-badge">Scikit-learn</span>
+          <span class="tech-badge">Flask</span>
+          <span class="tech-badge">Seaborn</span>
+          
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Fsolve/moroccan-real-estate-price-prediction/tree/main" class="project-link" target="_blank">GitHub</a>
+          <a href="https://drive.google.com/file/d/1mKmOjdmgB7Pfcgr3t35LyKE9eKhCJzgj/view?usp=drive_link" class="project-link" target="_blank">Documentation</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <div class="project-title">Sign Language Detection based on LSTM | Opencv |Mediapipe</div>
+        </div>
+        <p>Created a computer vision system for real-time sign language recognition using deep learning. The model detects and interprets hand gestures to facilitate communication for the hearing impaired.</p>
+        <ul>
+          <li>Built amd Trained a convolutional neural network on sign language gesture datasets</li>
+          <li>Implemented real-time detection and classification of sign language symbols</li>
+          <li>Optimized model performance for accuracy and inference speed</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Mediapipe</span>
+          <span class="tech-badge">Computer Vision OpenCV</span>
+          <span class="tech-badge">CNN</span>
+          <span class="tech-badge">LSTM</span>
+          <span class="tech-badge">TensorFlow</span>
+          <span class="tech-badge">Scikit-learn</span>
+          
+        </div>
+        <div class="project-links">
+          <a href="https://drive.google.com/file/d/13tFs7E94ziH3vqbU4tLgh0SfOgw4gzi7/view?usp=drive_link" class="project-link" target="_blank">View Project</a>
+          <a href="https://drive.google.com/file/d/1OQsVmOEnLsAJjwwmfwwn2-6mRXW4S23l/view?usp=drive_link" class="project-link" target="_blank">Documentation</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <div class="project-title">Library Management System</div>
+        </div>
+        <p>Developed a full-stack library management application using Spring Boot. The system handles book inventory, user management, borrowing operations, and generates reports for library administrators.</p>
+        <ul>
+          <li>Designed and implemented RESTful APIs for library operations</li>
+          <li>Created a relational database schema for efficient data management</li>
+          <li>Built a user-friendly interface for library staff and members</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-badge">Java</span>
+          <span class="tech-badge">Spring Boot</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">REST API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Fsolve/Library-Management" class="project-link" target="_blank">Github </a>
+          </div>
+      </div>
+
+      <div class="project-item" style="border-left: 4px solid #f59e0b; background: rgba(245, 158, 11, 0.05);">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+    <div class="project-header" style="margin-bottom: 0;">
+      <div class="project-title" style="color: #fbbf24;">JobScope - Morocco Job Market Intelligence Platform</div>
+    </div>
+    <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem; border: 1px solid #f59e0b; white-space: nowrap;">🚧 In Development</span>
+  </div>
+  <p>Developing a real-time data pipeline analyzing job market trends across Morocco's major job posting platforms. The system provides insights on in-demand skills, salary ranges, geographic distribution, and comparative analysis between different job posting websites.</p>
   <ul>
-  <!-- Prompt Engineering & LLM -->
-  <li>Contributed to the development of <strong><a href="https://graphask.com/">GraphAsk</a></strong>, a generative AI tool that transforms natural language questions into SQL queries and interactive data visualizations.</li>
-  <li>Designed and optimized complex prompts to improve the relevance and accuracy of responses, taking into account relational database structures and data models.</li>
-  <li>Optimized the performance of generated SQL queries and ensured compliance with defined data schemas.</li>
+    <li>Building web scrapers for multiple job platforms using Python requests, playwright, and BeautifulSoup</li>
+    <li>Implementing Kafka streaming pipeline for real-time job posting ingestion and processing</li>
+    <li>Developing PySpark ETL jobs for large-scale data cleaning, transformation, and aggregation</li>
+    <li>Designing data warehouse schema for efficient querying and market trend analysis</li>
+    <li>Creating interactive dashboards visualizing job market insights and platform comparisons</li>
+    <li>Setting up automated workflows for daily data collection and processing</li>
+  </ul>
+  <div class="tech-stack">
+    <span class="tech-badge">Python</span>
+    <span class="tech-badge">Kafka</span>
+    <span class="tech-badge">PySpark</span>
+    <span class="tech-badge">BeautifulSoup</span>
+    <span class="tech-badge">Scrapy</span>
+    <span class="tech-badge">PostgreSQL</span>
+    <span class="tech-badge">Docker</span>
+    <span class="tech-badge">Airflow</span>
+    <span class="tech-badge">Streamlit</span>
+  </div>
+  <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(245, 158, 11, 0.1); border-radius: 8px; border-left: 3px solid #f59e0b;">
+    <p style="color: #fbbf24; font-size: 0.9rem; margin: 0;"><strong>Expected Completion:</strong>  November 2025</p>
+  </div>
+</div>
+    </section>
 
-  <li>Developed, tested, and validated data processing pipelines, including cleaning, aggregation, and transformation of heterogeneous datasets.</li>
-  <li>Implemented <strong>OLAP</strong> features such as dynamic aggregation, drill-down, and roll-up for deep data exploration.</li>
-  <li>Contributed to the creation of a centralized data repository to support data governance and improve data quality.</li>
-  <li>Built a <strong>data mart</strong> and OLAP cube for enterprise-level reporting.</li>
-  <li>Developed a data cleaning and anonymization module within the <strong>Hibigbi</strong> ETL tool.</li>
-  <li>Integrated cleaned and transformed data with GraphAsk to enable natural language querying using LLMs.</li>
+    <section>
+      <h2>✨ Soft Skills & What I Enjoy</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        
+        <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05)); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎯</div>
+          <h3 style="color: #c4b5fd; margin-bottom: 0.8rem; font-size: 1.2rem;">Project Management</h3>
+          <p style="color: #d4d4d8; font-size: 0.95rem;">I love orchestrating complex projects from ideation to deployment. Translating business needs into technical solutions and keeping teams aligned gives me energy!</p>
+        </div>
 
+        <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(16, 185, 129, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🧩</div>
+          <h3 style="color: #6ee7b7; margin-bottom: 0.8rem; font-size: 1.2rem;">Problem Solving</h3>
+          <p style="color: #d4d4d8; font-size: 0.95rem;">I thrive on tackling complex challenges! Finding elegant solutions is what drives my passion for engineering.</p>
+        </div>
 
-  <h2>📁 Projects<a href="https://drive.google.com/drive/folders/1wOZT9PtG19GW_Jw13dXkxLD-cuqd9IS5?usp=drive_link"> [Click me] </a></h2>
-  <table>
-    <tr>
-      <th>Project</th>
-      <th>Documentation</th>
-    </tr>
-    <tr>
-      <td><a href="https://drive.google.com/file/d/1Gui6CsFLwasLvw8ENzPwzmm7chsxGkGB/view?usp=drive_link">URL Phishing Detector</a></td>
-      <td><a href="https://drive.google.com/file/d/1rtjIJV9oCLpkSKBnzVeXPbLaVp5QVRto/view?usp=drive_link">View Doc</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/Fsolve/moroccan-real-estate-price-prediction/tree/main">Morocco Real Estate Price Prediction</a></td>
-      <td><a href="https://drive.google.com/file/d/1mKmOjdmgB7Pfcgr3t35LyKE9eKhCJzgj/view?usp=drive_link">View Doc</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://drive.google.com/file/d/13tFs7E94ziH3vqbU4tLgh0SfOgw4gzi7/view?usp=drive_link">Sign Language Detection</a></td>
-      <td><a href="https://drive.google.com/file/d/1OQsVmOEnLsAJjwwmfwwn2-6mRXW4S23l/view?usp=drive_link">View Doc</a></td>
-    </tr>
-  </table>
+        <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05)); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(99, 102, 241, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(99, 102, 241, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👥</div>
+          <h3 style="color: #a5b4fc; margin-bottom: 0.8rem; font-size: 1.2rem;">Team Collaboration</h3>
+          <p style="color: #d4d4d8; font-size: 0.95rem;">Enjoy working in Agile teams, facilitating communication, and building strong working relationships.</p>
+        </div>
 
+        <div style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05)); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(236, 72, 153, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(236, 72, 153, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📚</div>
+          <h3 style="color: #f9a8d4; margin-bottom: 0.8rem; font-size: 1.2rem;">Continuous Learning</h3>
+          <p style="color: #d4d4d8; font-size: 0.95rem;"></p>
+        </div>
 
-  <h2>📜 Certifications</h2>
-  <table>
-    <tr>
-      <th>Certification</th>
-    </tr>
-    <tr>
-  
-      <td><a href="https://learn.deeplearning.ai/accomplishments/bb616a76-5956-403b-ac1b-d841ddbc676b?usp=sharing">Finetuning Large Language Models [DeepLearning.AI]</a></td>
-    </tr>
-    <tr>
-  
-      <td><a>CCNA [Cisco]</a></td>
-    </tr>
-    <tr>
-  
-      <td><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-PYHJVRJOAD.png">Pre security [Try hack me] </a></td>
-    </tr>
-    <tr>
-      <td><a href="https://www.freecodecamp.org/certification/fcc7ba61a23-a365-46bd-8e9d-cee251e78f01/responsive-web-design">Responsive Web Design Certification [FreeCodeCamp]</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://openclassrooms.com/fr/course-certificates/9226381978">C Programming</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://openclassrooms.com/fr/course-certificates/6234180785">C++ programming</a></td>
-    </tr>
-  </table>
+        <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(245, 158, 11, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💡</div>
+          <h3 style="color: #fbbf24; margin-bottom: 0.8rem; font-size: 1.2rem;">Creative Solutions</h3>
+          <p style="color: #d4d4d8; font-size: 0.95rem;">I enjoy thinking outside the box! </p>
+        </div>
 
-  
+        <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05)); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(59, 130, 246, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎨</div>
+          <h3 style="color: #93c5fd; margin-bottom: 0.8rem; font-size: 1.2rem;">Data Storytelling</h3>
+          <p style="color: #d4d4d8; font-size: 0.95rem;">Transforming complex data into clear, compelling visualizations and dashboards is my jam! I love making data accessible and actionable for everyone.</p>
+        </div>
 
-  
+      </div>
 
+      <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(139, 92, 246, 0.05); border-radius: 12px; border-left: 4px solid #8b5cf6;">
+        <h3 style="color: #c4b5fd; margin-bottom: 1rem; font-size: 1.2rem;">🌍 Languages</h3>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+          <div>
+            <span style="color: #a78bfa; font-weight: 600;">Arabic</span>
+            <span style="color: #d4d4d8;"> - Native</span>
+          </div>
+          <div>
+            <span style="color: #a78bfa; font-weight: 600;">French</span>
+            <span style="color: #d4d4d8;"> - Fluent</span>
+          </div>
+          <div>
+            <span style="color: #a78bfa; font-weight: 600;">English</span>
+            <span style="color: #d4d4d8;"> - Fluent</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    
+
+    
+    <section>
+      <h2>📜 Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-item" style="border: 2px solid #10b981; background: rgba(16, 185, 129, 0.1);">
+          <span style="color: #34d399; font-weight: 600;">Google Cloud Professional Data Engineer - In Progress</span>
+          <div style="font-size: 0.85rem; color: #9ca3af; margin-top: 0.3rem;">Expected: December 2025</div>
+        </div>
+        <div class="cert-item">
+          <a href="https://learn.deeplearning.ai/accomplishments/bb616a76-5956-403b-ac1b-d841ddbc676b?usp=sharing" target="_blank">Finetuning Large Language Models - DeepLearning.AI</a>
+        </div>
+        <div class="cert-item">
+          <span>CCNA - Cisco Networking Academy</span>
+        </div>
+        <div class="cert-item">
+          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-PYHJVRJOAD.png" target="_blank">Pre Security - TryHackMe</a>
+        </div>
+        <div class="cert-item">
+          <a href="https://www.freecodecamp.org/certification/fcc7ba61a23-a365-46bd-8e9d-cee251e78f01/responsive-web-design" target="_blank">Responsive Web Design - FreeCodeCamp</a>
+        </div>
+        <div class="cert-item">
+          <a href="https://openclassrooms.com/fr/course-certificates/9226381978" target="_blank">C Programming - OpenClassrooms</a>
+        </div>
+        <div class="cert-item">
+          <a href="https://openclassrooms.com/fr/course-certificates/6234180785" target="_blank">C++ Programming - OpenClassrooms</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Fatima Ezzahrae SBILI | Built with passion for Data & AI</p>
+    </footer>
+  </div>
 </body>
 </html>
